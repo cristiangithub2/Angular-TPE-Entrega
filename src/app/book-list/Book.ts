@@ -5,4 +5,5 @@ export interface Book {
     stock: number;
     image: string;
     clearence: boolean;
+    quantity: number;
 }

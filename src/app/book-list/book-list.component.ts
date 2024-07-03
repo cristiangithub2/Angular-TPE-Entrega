@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Book } from './book';
+import { Book } from './Book';
+import { NgIf } from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class BookListComponent {
       price: 19375,
       stock: 4,
       image: 'assets/img/nombreDelViento.jpeg',
-      clearence: true
+      clearence: true,
+      quantity:0,
     },
     {
       name: 'Bajo la misma estrella',
@@ -23,7 +25,8 @@ export class BookListComponent {
       price: 14300,
       stock: 0,
       image: 'assets/img/nombreDelViento.jpeg',
-      clearence: false
+      clearence: false,
+      quantity:0,
     },
     {
       name: 'El silencio de los corderos',
@@ -31,7 +34,28 @@ export class BookListComponent {
       price: 14530,
       stock: 11,
       image: 'assets/img/nombreDelViento.jpeg',
-      clearence: false
+      clearence: false,
+      quantity:0,
     },
   ];
+
+
+
+  upQuantity(book: Book): void{
+    if(book.stock >book.quantity)
+    book.quantity++;
+  }
+    
+  downQuantity(book: Book): void{
+      if(book.quantity > 0)
+      book.quantity-- 
+  }
+  onChangeQuantity(event: KeyboardEvent, book:Book): void {
+    console.log(event.key);
+    const charCode = event.key;
+    if (!(charCode >= '0' && charCode <= '9')) {
+      event.preventDefault();
+  }
+}
+
 }

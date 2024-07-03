@@ -7,15 +7,23 @@
             <th>Genero</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let book of books" [ngClass]="{'table-success clearence': book.clearence}">
-            <td><img [src]="book.image" [alt]="book.name"></td>
+            <td><img width="200" class="img-thumbnail" [src]="book.image" [alt]="book.name"></td>
             <td>{{book.name}}</td>
             <td>{{book.gender}}</td>
             <td>{{book.price |currency}}</td>
-            <td> <span class="badge text-bg-warning" *ngIf="book.stock==0"> SIN STOCK</span> <span *ngIf="book.stock !=0">{{book.stock}}</span></td>
+            <td> <span class="badge text-bg-warning" *ngIf="book.stock==0"> SIN STOCK</span> </td>
+            <td>
+            <span  *ngIf="book.stock !=0">
+                <button class=" btn btn-primary btn-sm" (click)="downQuantity(book)">-</button>
+                <input type="text" [(ngModel)]="book.quantity" (keyup)="onChangeQuantity($event, book)">
+                <button class=" btn btn-primary btn-sm" (click)="upQuantity(book)">+</button>
+            </span>
+            </td>
         </tr>
     </tbody>
 </table>
