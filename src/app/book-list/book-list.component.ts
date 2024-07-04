@@ -42,22 +42,4 @@ export class BookListComponent {
   ];
 
 
-
-  upQuantity(book: Book): void{
-    if(book.stock >book.quantity)
-    book.quantity++;
-  }
-    
-  downQuantity(book: Book): void{
-      if(book.quantity > 0)
-      book.quantity-- 
-  }
-  onChangeQuantity(event: KeyboardEvent, book:Book): void {
-    console.log(event.key);
-    const charCode = event.key;
-    if (!(charCode >= '0' && charCode <= '9')) {
-      event.preventDefault();
-  }
-}
-
 }
