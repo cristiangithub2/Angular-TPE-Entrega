@@ -1,5 +1,5 @@
 <h1>Lista de libros</h1>
-<table class="table ">
+<table class="table  text-center">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -18,7 +18,7 @@
             <td>{{book.price |currency}}</td>
             <td> <span class="badge text-bg-warning" *ngIf="book.stock==0"> SIN STOCK</span> </td>
             <td>
-            <span  *ngIf="book.stock !=0">
+            <span class="input-group"  *ngIf="book.stock !=0">
                 <button class=" btn btn-primary btn-sm" (click)="downQuantity(book)">-</button>
                 <input type="text" [(ngModel)]="book.quantity" (keyup)="onChangeQuantity($event, book)">
                 <button class=" btn btn-primary btn-sm" (click)="upQuantity(book)">+</button>
