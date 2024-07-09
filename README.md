@@ -1,3 +1,7 @@
+Tematica de Proyecto: Una pagina de venta de libros.
+Alumno: Cristian Andres González.
+
+
 # Libronautica
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
