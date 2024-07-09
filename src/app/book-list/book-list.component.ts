@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from './Book';
 import { NgIf } from '@angular/common';
+import { BookCartService } from '../book-cart.service';
 
 
 
@@ -41,5 +42,14 @@ export class BookListComponent {
     },
   ];
 
-
+  constructor(private cart: BookCartService){
+  }
+  addToCart(book: Book):void{
+    this.cart.addToCart(book);
+    book.stock -= book.quantity;
+    book.quantity = 0;
+  }
+  maxReached(m: string){
+    alert(m);
+  }
 }

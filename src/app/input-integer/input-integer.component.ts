@@ -17,11 +17,17 @@ export class InputIntegerComponent {
   @Output()
   quantityChange:EventEmitter<number>=new EventEmitter<number>();
 
+
+  @Output()
+  maxReached:EventEmitter<string>=new EventEmitter<string>();
+
   upQuantity(): void{
     if(this.max >this.quantity){
       this.quantity++;
       this.quantityChange.emit(this.quantity);
     }
+    else
+    this.maxReached.emit("se alcanzo el max");
     
   }
     

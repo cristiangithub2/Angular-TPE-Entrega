@@ -7,6 +7,7 @@
             <th>Genero</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Cantidad</th>
             <th>Compra</th>
         </tr>
     </thead>
@@ -18,8 +19,10 @@
             <td>{{book.price |currency}}</td>
             <td> <span class="badge text-bg-warning" *ngIf="book.stock==0"> SIN STOCK</span> </td>
             <td>
-                <app-input-integer [(quantity)]="book.quantity" [max]="book.stock" *ngIf="book.stock !=0"></app-input-integer>
-                cant: {{book.quantity}}
+                <app-input-integer [(quantity)]="book.quantity" [max]="book.stock" *ngIf="book.stock !=0"(maxReached)="maxReached($event)"></app-input-integer>
+            </td>
+            <td>
+                <button class="btn btn-primary " (click)="addToCart(book)">comprar</button>
             </td>
         </tr>
     </tbody>
